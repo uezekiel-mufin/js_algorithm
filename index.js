@@ -296,3 +296,75 @@ const reverseRecursiveQuickSort = (arr) => {
 };
 //big-O ------------ avgCase complexity of O-(nlogn)
 // console.log(reverseRecursiveQuickSort(sortArrReverse));
+
+function mergeSort(arr) {
+  if (arr.length < 2) {
+    return arr;
+  }
+  const mid = Math.floor(arr.length / 2);
+  const leftArr = arr.slice(0, mid);
+  const rightArr = arr.slice(mid);
+  return merge(mergeSort(leftArr), mergeSort(rightArr));
+}
+
+function merge(leftArr, rightArr) {
+  const sortedArr = [];
+  while (leftArr.length && rightArr.length) {
+    if (leftArr[0] <= rightArr[0]) {
+      sortedArr.push(leftArr.shift());
+    } else {
+      sortedArr.push(rightArr.shift());
+    }
+  }
+  return [...sortedArr, ...leftArr, ...rightArr];
+}
+
+// console.log(mergeSort(sortArrReverse));
+
+// cartesian products
+const arr1 = [1, 5, 6];
+const arr2 = [9, 4, 3];
+
+function cartesianProducts(arr1, arr2) {
+  const cartesianResult = [];
+  let result = [];
+  for (let i = 0; i < arr1.length; i++) {
+    for (let j = 0; j < arr2.length; j++) {
+      result.push([arr1[i], arr2[j]]);
+    }
+  }
+  return result;
+}
+console.log(cartesianProducts(arr1, arr2));
+
+//time complexity Big-O === O(mn) ----------------m and n are the length of the array
+
+// climbing stairs case idea
+
+function climbingStaircase(n) {
+  const noOfWays = [1, 2];
+  for (let i = 2; i <= n; i++) {
+    noOfWays[i] = noOfWays[i - 1] + noOfWays[i - 2];
+  }
+  return noOfWays[n - 1];
+}
+
+console.log(climbingStaircase(3));
+console.log(climbingStaircase(2));
+console.log(climbingStaircase(9));
+
+//Big-O == O(n) --------linear time complexity
+
+//Tower of Hanoi
+function towerOfHanoi(n, fromRod, toRod, usingRod) {
+  if (n === 1) {
+    console.log(`Move disk 1 from ${fromRod} to ${toRod}`);
+    return;
+  }
+  towerOfHanoi(n - 1, fromRod, usingRod, toRod);
+  console.log(`Move disk ${n} from ${fromRod} to ${toRod}`);
+  towerOfHanoi(n - 1, usingRod, toRod, fromRod);
+}
+towerOfHanoi(3, "A", "C", "B");
+
+//time complexity Big-O ==== 2^n -1
