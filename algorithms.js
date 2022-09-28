@@ -32,7 +32,7 @@ const fibonacciSequence = (n) => {
   return seq;
 };
 
-console.log(fibonacciSequence(9));
+// console.log(fibonacciSequence(9));
 
 //Big-o O(n)=> linear time complexity
 
@@ -42,7 +42,7 @@ const recursiveFib = (n) => {
   if (n < 2) return n;
   return recursiveFib(n - 1) + recursiveFib(n - 2);
 };
-console.log(recursiveFib(2));
+// console.log(recursiveFib(2));
 
 //the Big-O notation for recursiveFibonacci is 2^n. this is not a good performance
 
@@ -64,7 +64,7 @@ const recursiveFactorial = (n) => {
   if (n === 1) return n;
   return n * recursiveFactorial(n - 1);
 };
-console.log(recursiveFactorial(5));
+// console.log(recursiveFactorial(5));
 
 //the big-o of a recursive function for finding the factorial of a number is 0(n) : which means it is linear
 
@@ -132,12 +132,12 @@ const binSearch = (arr, k) => {
 
   console.log(mid);
 };
-console.log(binSearch(arr, 6));
+// console.log(binSearch(arr, 6));
 
-console.log(Math.ceil(62 / 5) * 5);
+// console.log(Math.ceil(62 / 5) * 5);
 const arrTest = [1, 2, 8, 3, 2, 2, 2, 5, 1];
 const arrFr = new Array(arrTest.length);
-console.log(arrFr);
+// console.log(arrFr);
 
 let visited = -1;
 for (i = 0; i < arrTest.length; i++) {
@@ -335,7 +335,7 @@ function cartesianProducts(arr1, arr2) {
   }
   return result;
 }
-console.log(cartesianProducts(arr1, arr2));
+// console.log(cartesianProducts(arr1, arr2));
 
 //time complexity Big-O === O(mn) ----------------m and n are the length of the array
 
@@ -349,20 +349,20 @@ function climbingStaircase(n) {
   return noOfWays[n - 1];
 }
 
-console.log(climbingStaircase(3));
-console.log(climbingStaircase(2));
-console.log(climbingStaircase(9));
+// console.log(climbingStaircase(3));
+// console.log(climbingStaircase(2));
+// console.log(climbingStaircase(9));
 
 //Big-O == O(n) --------linear time complexity
 
 //Tower of Hanoi
 function towerOfHanoi(n, fromRod, toRod, usingRod) {
   if (n === 1) {
-    console.log(`Move disk 1 from ${fromRod} to ${toRod}`);
+    // console.log(`Move disk 1 from ${fromRod} to ${toRod}`);
     return;
   }
   towerOfHanoi(n - 1, fromRod, usingRod, toRod);
-  console.log(`Move disk ${n} from ${fromRod} to ${toRod}`);
+  // console.log(`Move disk ${n} from ${fromRod} to ${toRod}`);
   towerOfHanoi(n - 1, usingRod, toRod, fromRod);
 }
 towerOfHanoi(3, "A", "C", "B");
