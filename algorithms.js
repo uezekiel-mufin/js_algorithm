@@ -165,9 +165,9 @@ const numbOfPairs = arrFr
     }
   })
   .reduce((acc, cur) => acc + cur, 0);
-// console.log(arrTest);
-// console.log(arrFr);
-// console.log(numbOfPairs);
+console.log(arrTest);
+console.log(arrFr);
+console.log(numbOfPairs);
 
 let currentPosition = 0;
 let MountTop = 0;
