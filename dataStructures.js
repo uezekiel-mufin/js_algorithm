@@ -668,11 +668,76 @@ function lookUpProfile(name, prop) {
   // Only change code above this line
 }
 
-lookUpProfile("Akira", "likes");
-lookUpProfile("Kristian", "lastName");
-lookUpProfile("Sherlock", "likes");
-lookUpProfile("Harry", "likes");
+// lookUpProfile("Akira", "likes");
+// lookUpProfile("Kristian", "lastName");
+// lookUpProfile("Sherlock", "likes");
+// lookUpProfile("Harry", "likes");
 
 console.log(parseInt("1011", 2));
 const numb = 3456;
-console.log(numb.toString());
+// console.log(numb.toString());
+
+const arrs = [6, 89, 3, 45];
+// const maximus = Math.max.apply(null, arrs);
+const maximus = Math.max(...arrs);
+console.log(maximus);
+
+const result = {
+  success: ["max-length", "no-amd", "prefer-arrow-functions"],
+  failure: ["no-var", "var-on-top", "linebreak"],
+  skipped: ["no-extra-semi", "no-dup-keys"],
+};
+function makeList(arr) {
+  // Only change code below this line
+  const failureItems = arr.map(
+    (item) => `<li class='text-warning'>${item}</li>`
+  );
+
+  return failureItems;
+}
+
+const failuresList = makeList(result.failure);
+console.log(failuresList);
+
+const newArr = [
+  [1, 1, 1, 0, 0, 0],
+  [0, 1, 0, 0, 0, 0],
+  [1, 1, 1, 0, 0, 0],
+  [0, 0, 2, 4, 4, 0],
+  [0, 0, 0, 2, 0, 0],
+  [0, 0, 1, 2, 4, 0],
+];
+
+function main() {
+  //create an empty array
+  // let arr = Array(6);
+
+  // for (let i = 0; i < 6; i++) {
+  //   arr[i] = readLine()
+  //     .replace(/\s+$/g, "")
+  //     .split(" ")
+  //     .map((arrTemp) => parseInt(arrTemp, 10));
+  // }
+  let countArr = [];
+  let currentSum = 0;
+  let count = 0;
+
+  for (let i = 0; i <= newArr.length / 2; i++) {
+    for (let j = 0; j <= newArr[i].length / 2; j++) {
+      let firstLayer = newArr[i][j] + newArr[i][j + 1] + newArr[i][j + 2];
+      let secondLayer = newArr[i + 1][j + 1];
+      let thirdLayer =
+        newArr[i + 2][j] + newArr[i + 2][j + 1] + newArr[i + 2][j + 2];
+      currentSum = firstLayer + secondLayer + thirdLayer;
+      countArr.push(currentSum);
+      count++;
+    }
+  }
+  const max = countArr.reduce(
+    (acc, cur) => (acc > cur ? acc : cur),
+    countArr[0]
+  );
+  // console.log(max);
+}
+
+main();
