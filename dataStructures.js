@@ -324,23 +324,21 @@ function intergerC() {
 }
 // console.log(intergerC());
 
-function processData(input) {
-  //Enter your code here
-  // if (typeof input === Number) return;
-  let even = "";
-  let odd = "";
-  for (let i = 0; i <= input.split("").length - 1; i++) {
-    if (i % 2 === 0) {
-      even += input[i];
-    } else if (i % 2 === 1) {
-      odd += input[i];
-    }
-  }
-  // console.log(`${even} ${odd}`);
-}
+// function processData(input) {
+//   for (let i = 0; i <= input.split("").length - 1; i++) {
+//     let even = "";
+//     let odd = "";
+//     if (i % 2 === 0) {
+//       even += input[i];
+//     } else if (i % 2 === 1) {
+//       odd += input[i];
+//     }
+//   }
+//   console.log(`${even} ${odd}`);
+// }
 
-processData("Hacker");
-processData("Rank");
+// processData("Hacker");
+// processData("Rank");
 // processData(2);
 
 //   --------------------------Linked List---------------------------
@@ -402,6 +400,7 @@ class LinkedList {
     if (index === 0) {
       removedNode = this.head;
     } else {
+      2;
       let prev = this.head;
       for (let i = 0; i < index - 1; i++) {
         prev = prev.next;
@@ -559,7 +558,7 @@ console.log(map);
 
 const myString = "Hello World. How are you doing?";
 const splits = myString.split(" ");
-console.log(splits);
+// console.log(splits);
 
 // function processData(input) {
 //   //Enter your code here
@@ -673,14 +672,14 @@ function lookUpProfile(name, prop) {
 // lookUpProfile("Sherlock", "likes");
 // lookUpProfile("Harry", "likes");
 
-console.log(parseInt("1011", 2));
+// console.log(parseInt("1011", 2));
 const numb = 3456;
 // console.log(numb.toString());
 
 const arrs = [6, 89, 3, 45];
 // const maximus = Math.max.apply(null, arrs);
 const maximus = Math.max(...arrs);
-console.log(maximus);
+// console.log(maximus);
 
 const result = {
   success: ["max-length", "no-amd", "prefer-arrow-functions"],
@@ -697,7 +696,7 @@ function makeList(arr) {
 }
 
 const failuresList = makeList(result.failure);
-console.log(failuresList);
+// console.log(failuresList);
 
 const newArr = [
   [1, 1, 1, 0, 0, 0],
@@ -741,3 +740,93 @@ function main() {
 }
 
 main();
+
+// const inputData = [12, 34, 56];
+// const inputData = [2, 3, 4, 4, 5, 6];
+const inputData = [100];
+
+function processingData(inputData) {
+  //Enter your code here
+  let newArrs = [];
+  let k = 5;
+  let n = 1;
+  let firstEle = inputData[0] / k;
+
+  if (n === 1) {
+    newArrs.push(firstEle);
+  } else {
+    newArrs = inputData.map((item) => item - firstEle).splice(0, n);
+  }
+  console.log(newArrs);
+}
+// processingData(inputData);
+
+// function processingData(inputData) {
+//   //Enter your code here
+//   let arrTemp = [];
+
+//   for (let i = 0; i < inputData.length; i++) {
+//     for (let j = i; j < inputData.length; j++) {
+//       arrTemp.push(inputData[i] + inputData[j]);
+//     }
+//   }
+//   console.log(arrTemp);
+// }
+// processingData(inputData);
+
+// console.log(Math.round(Math.random() * 1));
+
+const convertToNum = (str) => {
+  let total = 0;
+  for (let i = 0; i < str.length; i++) {
+    const numb = str.charAt([i]);
+    total += str.charCodeAt([i]);
+    console.log(numb);
+    // console.log(total);
+  }
+  return total;
+};
+// console.log(convertToNum("ezekiel"));
+
+let age = 16;
+switch (age) {
+  case 15: {
+    console.log("yes");
+    break;
+  }
+  default:
+    console.log("no");
+}
+
+const stringConversion = () => {
+  // try {
+  //   const strToInt = parseInt(stringCon);
+  //   if (!isNaN(strToInt)) {
+  //     console.log(strToInt);
+  //   } else {
+  //     throw "Bad String";
+  //   }
+  // } catch (error) {
+  //   console.log(error);
+  // }
+  // console.log(Number.isInteger(parseInt(stringCon)));
+};
+stringConversion();
+const stringCon = "45dfhg";
+
+function isInteger(value) {
+  const conva = /^\d+$/.test(value);
+  console.log(conva);
+  try {
+    /^\d+$/.test(value)
+      ? console.log(parseInt(value))
+      : (() => {
+          throw new Error("Bad string");
+        })();
+
+    // addLert("welcome");
+  } catch (err) {
+    console.log(err.message);
+  }
+}
+console.log(isInteger(stringCon));
