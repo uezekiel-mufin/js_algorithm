@@ -829,4 +829,225 @@ function isInteger(value) {
     console.log(err.message);
   }
 }
-console.log(isInteger(stringCon));
+// console.log(isInteger(stringCon));
+
+const divisorSum = (n) => {
+  let divisorsArr = [];
+  for (let i = 1; i <= n; i++) {
+    if (n % i === 0) {
+      divisorsArr.push(i);
+    }
+  }
+  console.log(divisorsArr);
+  const sumOfDivisors = divisorsArr.reduce((acc, cur) => acc + cur, 0);
+  return sumOfDivisors;
+};
+// console.log(divisorSum(20));
+
+const arrayBubble = [3, -2, 5, 9, 7, -5];
+
+const bubbleSorting = (arr) => {
+  let numOfSwaps = 0;
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length; j++) {
+      if (arr[j] > arr[j + 1]) {
+        let temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+        numOfSwaps++;
+      }
+    }
+  }
+  console.log(numOfSwaps);
+  console.log(arr[arr.length - 1]);
+  return arr;
+};
+console.log(bubbleSorting(arrayBubble));
+
+async function getData() {
+  return await Promise.resolve("Hello");
+}
+const datass = getData();
+console.log(datass);
+
+(function () {
+  var a = (b = 5);
+})();
+// console.log(b)
+
+const coderByte = [5, 2, 8, 3, 9, 12];
+const coderByte2 = [5, 3, 1, 9, 7, 3, 4, 1];
+
+const solutionArray = (arr) => {
+  let tempArr = [-1];
+
+  for (let i = 0; i <= arr.length; i++) {
+    if (arr[i] < arr[i - 1] && i === 1) {
+      tempArr.push(-1);
+    } else if (arr[i] < arr[i - 1]) {
+      const newArr = arr.slice(0, i + 1);
+      console.log(newArr);
+      const lessArr = newArr.filter((item) => item <= arr[i]);
+      if (lessArr.length > 1) {
+        console.log(lessArr);
+        tempArr.push(lessArr[lessArr.length - 2]);
+      } else {
+        tempArr.push(-1);
+      }
+    } else if (arr[i] > arr[i - 1]) {
+      tempArr.push(arr[i - 1]);
+    }
+  }
+  const result = tempArr.toString(" ").replaceAll(",", " ");
+  return result;
+};
+console.log(solutionArray(coderByte));
+console.log(solutionArray(coderByte2));
+
+// const nomber = 40322;
+
+// console.log(
+//   nomber
+//     .toString()
+//     .concat("kwu3z8gd")
+//     .split("")
+//     .map((ele, ind) => {
+//       if ((ind + 1) % 3 === 0) {
+//         return "X";
+//       } else {
+//         return ele;
+//       }
+//     })
+//     .join("")
+// );
+
+// const isValid = function (s) {
+//   // define our pairs in a map
+//   let pairs = {
+//     ")": "(",
+//     "}": "{",
+//     "]": "[",
+//   };
+//   // holds our current "half"
+//   let dummy = [];
+//   // if our first "half" is an opening bracket/brace, add it to our dummy
+//   for (let i = 0; i < s.length; i++) {
+//     if (s[i] === "(" || s[i] === "[" || s[i] === "{") {
+//       dummy.push(s[i]);
+//       // if the last index of our dummy isn't a closing bracket, it's gone.
+//     } else if (dummy[dummy.length - 1] === pairs[s[i]]) {
+//       dummy.pop();
+//     } else return false;
+//   }
+//   return dummy.length ? false : true;
+// };
+// var isValid = function (s) {
+//   const stack = [];
+
+//   for (let i = 0; i < s.length; i++) {
+//     let c = s.charAt(i);
+//     switch (c) {
+//       case "(":
+//         stack.push(")");
+//         break;
+//       case "[":
+//         stack.push("]");
+//         break;
+//       case "{":
+//         stack.push("}");
+//         break;
+//       default:
+//         if (c !== stack.pop()) {
+//           return false;
+//         }
+//     }
+//   }
+
+//   return stack.length === 0;
+// };
+// var isValid = function (s) {
+//   const stack = [];
+//   const map = {
+//     "(": ")",
+//     "[": "]",
+//     "{": "}",
+//   };
+
+//   for (let i = 0; i < s.length; i++) {
+//     let c = s[i];
+//     if (map[c]) {
+//       stack.push(map[c]);
+//     } else if (c !== stack.pop()) {
+//       return false;
+//     }
+//   }
+
+//   return !stack.length;
+// };
+
+// code to check for the correct parenthesis in a string
+// var isValid = function (s) {
+//   const leftArr = [];
+//   const rightArr = [];
+//   for (let i = 0; i < s.length; i++) {
+//     if (s[i] === "(" || s[i] === "{" || s[i] === "[") {
+//       leftArr.push(s[i]);
+//     } else if (s[i] === ")" || s[i] === "}" || s[i] === "]") {
+//       rightArr.push(s[i]);
+//     }
+//   }
+
+//   if (leftArr.length === rightArr.length) {
+//     for (let i = 0; i < rightArr.length; i++) {
+//       const indexRight = rightArr.findIndex((ele) => ele === rightArr[i]);
+//       const indexLeft = leftArr.findIndex((ele) => ele === rightArr[i]);
+//       console.log(indexRight);
+//       leftArr.splice(indexLeft, 1);
+//       // rightArr.splice(indexRight, 1);
+//     }
+//     if (leftArr.length === 0) {
+//       return `1 ${rightArr.length}`;
+//     } else {
+//       return 0;
+//     }
+//   } else {
+//     return 0;
+//   }
+// };
+// console.log(isValid("(coder)[byte)])"));
+// console.log(isValid("(c([od]er))) b(yt[e])"));
+
+// function demo(str) {
+//   let openingTags = str.match(/<\w+>/g);
+//   let closingTags = str.match(/(<\/\w+>)/g).reverse();
+//   let strObj = {
+//     "<div>": "</div>",
+//     "<p>": "</p>",
+//     "<i>": "</i>",
+//     "<p>": "</p>",
+//     "<em>": "</em>",
+//     "<b>": "</b>",
+//   };
+
+//   // There might not be the same number of opening and closing tags
+//   const max = Math.max(openingTags.length, closingTags.length);
+
+//   console.log(Object.values(strObj));
+//   let temppOpen = [];
+//   let temppClose = [];
+//   for (let i = 0; i < max; i++) {
+//     if (!closingTags.includes(strObj[openingTags[i]])) {
+//       temppOpen.push(openingTags[i]);
+//     } else if (!closingTags.includes(Object.values(strObj)[i])) {
+//       temppClose.push(closingTags[i]);
+//     }
+//   }
+
+//   if (temppOpen.length > 0) {
+//     return temppOpen[0].replace(/<|>/g, "");
+//   } else {
+//     return temppClose[0];
+//   }
+// }
+
+// console.log(demo("<div>abc</div><p><em><i>test test test</b></em></p>"));
